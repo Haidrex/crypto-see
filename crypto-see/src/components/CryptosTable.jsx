@@ -1,43 +1,60 @@
 import React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+	Paper,
+} from '@mui/material';
 
-function createData(name, currentPrice, high24, low24, marketCap, totalVolume) {
-	return { name, currentPrice, high24, low24, marketCap, totalVolume };
-}
+const StyledHeaderCell = styled(TableCell)(({ theme }) => ({
+	fontWeight: 'bold',
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+	// hide last border
+	'&:last-child td, &:last-child th': {
+		border: 0,
+	},
+	'&:hover': {
+		cursor: 'pointer',
+		backgroundColor: theme.palette.action.hover,
+	},
+}));
 
 const CryptosTable = ({ data }) => {
 	return (
-		<TableContainer component={Paper}>
+		<TableContainer component={Paper} sx={{ mt: 1 }}>
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
 				<TableHead>
 					<TableRow>
-						<TableCell align="left">Name</TableCell>
-						<TableCell align="right">Current Price</TableCell>
-						<TableCell align="right">24h High</TableCell>
-						<TableCell align="right">24h Low</TableCell>
-						<TableCell align="right">Market cap</TableCell>
-						<TableCell align="right">Total volume</TableCell>
+						<StyledHeaderCell align="left">Name</StyledHeaderCell>
+						<StyledHeaderCell align="right">Current Price</StyledHeaderCell>
+						<StyledHeaderCell align="right">24h High</StyledHeaderCell>
+						<StyledHeaderCell align="right">24h Low</StyledHeaderCell>
+						<StyledHeaderCell align="right">Market cap</StyledHeaderCell>
+						<StyledHeaderCell align="right">Total volume</StyledHeaderCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{data.map((row) => (
-						<TableRow
-							key={row.name}
-							sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-						>
-							<TableCell align="left">{row.name}</TableCell>
+						<StyledTableRow key={row.name}>
+							<TableCell align="left" sx={{ display: 'flex' }}>
+								<img
+									src={row.image}
+									style={{ width: '20px', marginRight: '5px' }}
+								/>
+								{row.name}
+							</TableCell>
 							<TableCell align="right">{row.current_price}</TableCell>
 							<TableCell align="right">{row.high_24h}</TableCell>
 							<TableCell align="right">{row.low_24h}</TableCell>
 							<TableCell align="right">{row.market_cap}</TableCell>
 							<TableCell align="right">{row.total_volume}</TableCell>
-						</TableRow>
+						</StyledTableRow>
 					))}
 				</TableBody>
 			</Table>

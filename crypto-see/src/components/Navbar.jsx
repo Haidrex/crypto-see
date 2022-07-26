@@ -1,15 +1,23 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+import { useNavigate } from 'react-router-dom';
+import {
+	Box,
+	Drawer,
+	List,
+	Divider,
+	ListItem,
+	ListItemButton,
+	ListItemText,
+} from '@mui/material';
 
 const drawerWidth = 240;
 
 const Navbar = ({ component }) => {
+	const navigate = useNavigate();
+
+	const handleClick = (path) => {
+		navigate({ path });
+	};
 	return (
 		<Box sx={{ display: 'flex' }}>
 			<Drawer
@@ -26,16 +34,18 @@ const Navbar = ({ component }) => {
 				anchor="left"
 			>
 				<List>
-					{['Crypto', 'Nothing', 'Nothing', 'Nothing'].map((text, index) => (
-						<>
-							<ListItem key={text} disablePadding>
-								<ListItemButton>
-									<ListItemText primary={text} sx={{ color: 'white' }} />
-								</ListItemButton>
-							</ListItem>
-							<Divider />
-						</>
-					))}
+					<ListItem key="home" disablePadding>
+						<ListItemButton onClick={() => handleClick('/')}>
+							<ListItemText primary="Coins" sx={{ color: 'white' }} />
+						</ListItemButton>
+					</ListItem>
+					<Divider />
+					<ListItem key="exchanges" disablePadding>
+						<ListItemButton onClick={() => handleClick('/exchanges')}>
+							<ListItemText primary="Exchanges" sx={{ color: 'white' }} />
+						</ListItemButton>
+					</ListItem>
+					<Divider />
 				</List>
 			</Drawer>
 			{component}

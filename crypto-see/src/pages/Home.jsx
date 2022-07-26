@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CryptosTable from '../components/CryptosTable';
+import { Container } from '@mui/material';
+import CryptoSearch from '../components/CryptoSearch';
 
 const Home = () => {
 	const [data, setData] = useState([]);
@@ -25,9 +27,10 @@ const Home = () => {
 	}, []);
 
 	return (
-		<>
+		<Container sx={{ padding: 5 }}>
+			<CryptoSearch />
 			<CryptosTable data={data} />
-		</>
+		</Container>
 	);
 };
 
