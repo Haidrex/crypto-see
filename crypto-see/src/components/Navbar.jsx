@@ -1,54 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+	AppBar,
 	Box,
-	Drawer,
-	List,
-	Divider,
-	ListItem,
-	ListItemButton,
-	ListItemText,
+	IconButton,
+	Toolbar,
+	Typography,
+	Button,
 } from '@mui/material';
 
-const drawerWidth = 240;
-
-const Navbar = ({ component }) => {
-	const navigate = useNavigate();
+const Navbar = () => {
+	let navigate = useNavigate();
 
 	const handleClick = (path) => {
 		navigate({ path });
 	};
 	return (
-		<Box sx={{ display: 'flex' }}>
-			<Drawer
-				sx={{
-					width: drawerWidth,
-					flexShrink: 0,
-					'& .MuiDrawer-paper': {
-						width: drawerWidth,
-						boxSizing: 'border-box',
-						backgroundColor: 'primary.main',
-					},
-				}}
-				variant="permanent"
-				anchor="left"
-			>
-				<List>
-					<ListItem key="home" disablePadding>
-						<ListItemButton onClick={() => handleClick('/')}>
-							<ListItemText primary="Coins" sx={{ color: 'white' }} />
-						</ListItemButton>
-					</ListItem>
-					<Divider />
-					<ListItem key="exchanges" disablePadding>
-						<ListItemButton onClick={() => handleClick('/exchanges')}>
-							<ListItemText primary="Exchanges" sx={{ color: 'white' }} />
-						</ListItemButton>
-					</ListItem>
-					<Divider />
-				</List>
-			</Drawer>
-			{component}
+		<Box sx={{ flexGrow: 1 }}>
+			<AppBar position="static">
+				<Toolbar>
+					<IconButton
+						size="large"
+						edge="start"
+						color="inherit"
+						aria-label="menu"
+						sx={{ mr: 2 }}
+					></IconButton>
+					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+						Crypto-See
+					</Typography>
+					<Button color="inherit" onClick={() => handleClick('/')}>
+						Coins
+					</Button>
+					<Button color="inherit" onClick={() => handleClick('/exchanges')}>
+						Exchanges
+					</Button>
+				</Toolbar>
+			</AppBar>
 		</Box>
 	);
 };

@@ -9,14 +9,11 @@ function App() {
 	return (
 		<>
 			<CssBaseline />
-			<Navbar
-				component={
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/exchanges" element={<Exchanges />} />
-					</Routes>
-				}
-			/>
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/exchanges" element={<Exchanges />} />
+			</Routes>
 		</>
 	);
 }
