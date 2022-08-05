@@ -4,7 +4,7 @@ import {
 	CardContent,
 	CardMedia,
 	Typography,
-	CardActionArea,
+	CardActionArea
 } from '@mui/material';
 
 const ExchangeCard = ({ exchange }) => {

@@ -29,10 +29,13 @@ const Navbar = () => {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Crypto-See
 					</Typography>
-					<Button color="inherit" onClick={() => handleClick('/')}>
+					<Button color="inherit" onClick={() => navigate('/')}>
+						Home
+					</Button>
+					<Button color="inherit" onClick={() => navigate('/coins')}>
 						Coins
 					</Button>
-					<Button color="inherit" onClick={() => handleClick('/exchanges')}>
+						<Button color="inherit" onClick={() => navigate('/exchanges')}>
 						Exchanges
 					</Button>
 				</Toolbar>
