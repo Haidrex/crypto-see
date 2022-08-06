@@ -5,6 +5,7 @@ import Exchanges from './pages/Exchanges';
 import { CssBaseline } from '@mui/material';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Coin from './pages/Coin';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/coins" element={<Coins />} />
 				<Route path="/exchanges" element={<Exchanges />} />
+				<Route path="/coins/:id" element={<Coin />} />
 			</Routes>
 		</>
 	);

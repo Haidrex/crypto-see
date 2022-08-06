@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import {
 	Table,
@@ -15,7 +16,6 @@ const StyledHeaderCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-	// hide last border
 	'&:last-child td, &:last-child th': {
 		border: 0,
 	},
@@ -26,6 +26,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const CryptosTable = ({ data }) => {
+	let navigate = useNavigate();
+
 	return (
 		<TableContainer component={Paper} sx={{ mt: 1 }}>
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -41,7 +43,10 @@ const CryptosTable = ({ data }) => {
 				</TableHead>
 				<TableBody>
 					{data.map((row) => (
-						<StyledTableRow key={row.name}>
+						<StyledTableRow
+							key={row.name}
+							onClick={() => navigate(`/coins/${row.id}`)}
+						>
 							<TableCell align="left" sx={{ display: 'flex' }}>
 								<img
 									src={row.image}
