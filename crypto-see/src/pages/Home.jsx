@@ -15,7 +15,6 @@ const Home = () => {
 				const response = await axios.get(
 					'https://api.coingecko.com/api/v3/global'
 				);
-				console.log(response.data.data);
 				setData(response.data.data);
 			} catch (error) {
 				setError(error);
