@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CryptoChart from "../components/CryptoChart";
-import { Container } from "@mui/material";
+import { Container, Divider } from "@mui/material";
 import CryptoHeader from "../components/CryptoHeader";
+import CryptoChartHeader from "../components/CryptoChartHeader";
 
 const Coin = () => {
   const { id } = useParams();
@@ -36,9 +37,18 @@ const Coin = () => {
   return (
     <Container sx={{ padding: 5 }}>
       <CryptoHeader
-        image={data.image.small}
+        image={data.image.large}
         name={data.name}
         symbol={data.symbol}
+        links={data.links}
+      />
+      <Divider />
+      <CryptoChartHeader
+        currentPrice={data.market_data.current_price.eur}
+        priceChange={data.market_data.price_change_24h_in_currency.eur}
+        priceChangePercentage={
+          data.market_data.price_change_percentage_24h_in_currency.eur
+        }
       />
       <CryptoChart />
     </Container>

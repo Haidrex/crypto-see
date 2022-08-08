@@ -1,7 +1,18 @@
-import { Box, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  List,
+  ListItem,
+  Typography,
+  IconButton,
+} from "@mui/material";
+import { Facebook, Twitter, Reddit } from "@mui/icons-material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const CryptoHeader = ({ image, name, symbol }) => {
+const CryptoHeader = ({ image, name, symbol, links }) => {
+  let navigate = useNavigate();
+
   return (
     <Container>
       <Box
@@ -27,7 +38,38 @@ const CryptoHeader = ({ image, name, symbol }) => {
           </Box>
         </Box>
         <Box>
-          <Typography>Links</Typography>
+          <List sx={{ display: "flex" }}>
+            <ListItem>
+              <IconButton
+                component="a"
+                target="_blank"
+                rel="noreferrer"
+                href={`https://facebook.com/${links.facebook_username}`}
+              >
+                <Facebook />
+              </IconButton>
+            </ListItem>
+            <ListItem>
+              <IconButton
+                component="a"
+                target="_blank"
+                rel="noreferrer"
+                href={`https://twitter.com/${links.twitter_screen_name}`}
+              >
+                <Twitter />
+              </IconButton>
+            </ListItem>
+            <ListItem>
+              <IconButton
+                component="a"
+                target="_blank"
+                rel="noreferrer"
+                href={links.subreddit_url}
+              >
+                <Reddit />
+              </IconButton>
+            </ListItem>
+          </List>
         </Box>
       </Box>
     </Container>
