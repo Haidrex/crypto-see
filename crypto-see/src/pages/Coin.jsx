@@ -5,11 +5,14 @@ import CryptoChart from "../components/CryptoChart";
 import { Container, Divider } from "@mui/material";
 import CryptoHeader from "../components/CryptoHeader";
 import CryptoChartHeader from "../components/CryptoChartHeader";
+import CryptoDetails from "../components/CryptoDetails";
+import CryptoDescription from "../components/CryptoDescription";
 
 const Coin = () => {
   const { id } = useParams();
 
   const [data, setData] = useState({});
+  const [details, setDetails] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,6 +23,13 @@ const Coin = () => {
           `https://api.coingecko.com/api/v3/coins/${id}?localization=false`
         );
         console.log(response.data);
+        setDetails({
+          market_cap: response.data.market_data.market_cap.eur,
+          circulating_supply: response.data.market_data.circulating_supply,
+          ath: response.data.market_data.ath.eur,
+          total_volume: response.data.market_data.total_volume.eur,
+          price_change: response.data.market_data.price_change_percentage_7d,
+        });
         setData(response.data);
       } catch (error) {
         setError(error);
@@ -35,7 +45,7 @@ const Coin = () => {
   }
 
   return (
-    <Container sx={{ padding: 5 }}>
+    <Container sx={{}}>
       <CryptoHeader
         image={data.image.large}
         name={data.name}
@@ -51,6 +61,8 @@ const Coin = () => {
         }
       />
       <CryptoChart />
+      <CryptoDetails details={details} />
+      <CryptoDescription text={data.description.en} />
     </Container>
   );
 };

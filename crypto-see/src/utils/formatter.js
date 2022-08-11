@@ -12,3 +12,13 @@ export const priceFormatter = (price) => {
 
   return formatter.format(price);
 };
+
+export const formatDescription = (text) => {
+  var find = "</a>";
+  var find2 = "<a";
+  var re2 = new RegExp(find2, "g");
+  var re = new RegExp(find, "g");
+  let result = text.replace(re2, "<Link");
+  result = text.replace(re, "</Link>");
+  return result;
+};

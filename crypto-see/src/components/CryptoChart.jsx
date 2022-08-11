@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 import { Container } from "@mui/material";
 
@@ -46,7 +47,7 @@ const CryptoChart = () => {
   }
 
   return (
-    <Container sx={{ display: "flex", justifyContent: "center" }}>
+    <ResponsiveContainer width="100%" height={400}>
       <LineChart
         width={1000}
         height={400}
@@ -65,7 +66,7 @@ const CryptoChart = () => {
         <Legend />
         <Line dataKey="price" stroke="#8884d8" activeDot={{ r: 8 }} />
       </LineChart>
-    </Container>
+    </ResponsiveContainer>
   );
 };
 
