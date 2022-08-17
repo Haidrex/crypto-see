@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Container,
@@ -7,12 +8,8 @@ import {
   IconButton,
 } from "@mui/material";
 import { Facebook, Twitter, Reddit } from "@mui/icons-material";
-import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const CryptoHeader = ({ image, name, symbol, links }) => {
-  let navigate = useNavigate();
-
   return (
     <Container>
       <Box

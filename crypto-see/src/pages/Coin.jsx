@@ -7,6 +7,7 @@ import CryptoHeader from "../components/CryptoHeader";
 import CryptoChartHeader from "../components/CryptoChartHeader";
 import CryptoDetails from "../components/CryptoDetails";
 import CryptoDescription from "../components/CryptoDescription";
+import cryptoService from "../services/cryptoService";
 
 const Coin = () => {
   const { id } = useParams();
@@ -19,9 +20,7 @@ const Coin = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/${id}?localization=false`
-        );
+        const response = await cryptoService.getCrypto(id);
         console.log(response.data);
         setDetails({
           market_cap: response.data.market_data.market_cap.eur,
@@ -45,7 +44,7 @@ const Coin = () => {
   }
 
   return (
-    <Container sx={{}}>
+    <Container maxWidth="lg">
       <CryptoHeader
         image={data.image.large}
         name={data.name}

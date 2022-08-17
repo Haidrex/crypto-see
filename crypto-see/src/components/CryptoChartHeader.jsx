@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -5,8 +6,18 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
-import React, { useState } from "react";
-import { priceFormatter } from "../utils/formatter";
+import { styled } from "@mui/material/styles";
+import { priceFormatter, roundTo2Decimal } from "../utils/formatter";
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+}));
 
 const CryptoChartHeader = ({
   currentPrice,
@@ -22,17 +33,12 @@ const CryptoChartHeader = ({
 
   return (
     <Container sx={{ padding: 2 }}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-        }}
-      >
+      <StyledBox>
         <Box>
           <Typography variant="h3">{priceFormatter(currentPrice)}</Typography>
           <Typography sx={{ color: `${priceChangeColor}` }}>
-            {priceChange}({priceChangePercentage}%)
+            {priceFormatter(priceChange)}(
+            {roundTo2Decimal(priceChangePercentage)}%)
           </Typography>
         </Box>
         <Box>
@@ -49,7 +55,7 @@ const CryptoChartHeader = ({
             <ToggleButton value="1Y">1Y</ToggleButton>
           </ToggleButtonGroup>
         </Box>
-      </Box>
+      </StyledBox>
     </Container>
   );
 };

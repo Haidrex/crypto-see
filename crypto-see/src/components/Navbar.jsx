@@ -1,20 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AppBar,
   Box,
-  IconButton,
+  Divider,
   Toolbar,
   Typography,
   Button,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material";
 
 const Navbar = () => {
   let navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleClick = (path) => {
-    navigate({ path });
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        Crypto-See
+      </Typography>
+      <Divider />
+      <List>
+        <ListItem key="home" disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText primary="Home" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key="coins" disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText primary="Coins" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key="exchanges" disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText primary="Exchanges" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Box>
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

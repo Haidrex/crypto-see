@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { dateFormatter } from "../utils/formatter";
 import { useParams } from "react-router-dom";
+import { dateFormatter } from "../utils/formatter";
 import {
   LineChart,
   Line,
@@ -12,7 +12,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { Container } from "@mui/material";
 
 const CryptoChart = () => {
   const { id } = useParams();

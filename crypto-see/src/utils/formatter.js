@@ -22,3 +22,8 @@ export const formatDescription = (text) => {
   result = text.replace(re, "</Link>");
   return result;
 };
+
+export const roundTo2Decimal = (number) => {
+  const result = Math.round((number + Number.EPSILON) * 100) / 100;
+  return result;
+};

@@ -1,13 +1,9 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import DataCard from "./DataCard";
+import { roundTo2Decimal } from "../utils/formatter";
 
 const TopCryptos = ({ cryptos }) => {
-  const roundTo2Decimal = (number) => {
-    const result = Math.round((number + Number.EPSILON) * 100) / 100;
-    return result;
-  };
-
   return (
     <Box>
       <Typography variant="h4" textAlign="center" mb={5}>
@@ -16,7 +12,7 @@ const TopCryptos = ({ cryptos }) => {
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 20 }}
+        columns={{ xs: 2, sm: 8, md: 20 }}
       >
         {Object.keys(cryptos).map((key, index) => {
           return (
