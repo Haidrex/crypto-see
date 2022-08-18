@@ -7,6 +7,10 @@ const StyledList = styled(List)(({ theme }) => ({
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "center",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    flexWrap: "no-wrap",
+  },
 }));
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({

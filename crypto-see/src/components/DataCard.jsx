@@ -1,9 +1,14 @@
 import React from "react";
+import { styled } from "@mui/material/styles";
 import { Card, CardContent, Typography } from "@mui/material";
+
+const StyledCard = styled(Card)(({ theme }) => ({
+  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+}));
 
 const DataCard = ({ label, data }) => {
   return (
-    <Card sx={{ maxWidth: 345, backgroundColor: "#ddd" }}>
+    <StyledCard sx={{ maxWidth: 345, backgroundColor: "#fff" }}>
       <CardContent>
         <Typography
           gutterBottom
@@ -13,11 +18,11 @@ const DataCard = ({ label, data }) => {
         >
           {label}
         </Typography>
-        <Typography variant="h3" color="text.primary" textAlign="center">
+        <Typography variant="h4" color="text.primary" textAlign="center">
           {data}
         </Typography>
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 

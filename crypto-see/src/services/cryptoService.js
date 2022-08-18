@@ -16,4 +16,8 @@ const getExchanges = () => {
   return axios.get(`${baseUrl}/exchanges?per_page=20&page=1'`);
 };
 
-export default { getAllCryptos, getCrypto, getExchanges };
+const getGlobal = () => {
+  return axios.get(`${baseUrl}/global`);
+};
+
+export default { getAllCryptos, getCrypto, getExchanges, getGlobal };

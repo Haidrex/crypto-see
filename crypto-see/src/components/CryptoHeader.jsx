@@ -7,18 +7,23 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { Facebook, Twitter, Reddit } from "@mui/icons-material";
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+}));
 
 const CryptoHeader = ({ image, name, symbol, links }) => {
   return (
     <Container>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <StyledBox>
         <Box sx={{ display: "flex", gap: "1em", alignItems: "center" }}>
           <Box
             component="img"
@@ -68,7 +73,7 @@ const CryptoHeader = ({ image, name, symbol, links }) => {
             </ListItem>
           </List>
         </Box>
-      </Box>
+      </StyledBox>
     </Container>
   );
 };

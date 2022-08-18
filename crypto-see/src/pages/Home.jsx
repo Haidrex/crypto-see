@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Container, Box, Grid, Typography } from "@mui/material";
 import DataCard from "../components/DataCard";
 import TopCryptos from "../components/TopCryptos";
+import cryptoService from "../services/cryptoService";
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -12,9 +12,7 @@ const Home = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await axios.get(
-          "https://api.coingecko.com/api/v3/global"
-        );
+        const response = await cryptoService.getGlobal();
         setData(response.data.data);
       } catch (error) {
         setError(error);
