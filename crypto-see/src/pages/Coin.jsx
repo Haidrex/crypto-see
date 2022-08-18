@@ -7,6 +7,7 @@ import CryptoHeader from "../components/CryptoHeader";
 import CryptoChartHeader from "../components/CryptoChartHeader";
 import CryptoDetails from "../components/CryptoDetails";
 import CryptoDescription from "../components/CryptoDescription";
+import Loading from "../components/Loading";
 import cryptoService from "../services/cryptoService";
 
 const Coin = () => {
@@ -40,7 +41,7 @@ const Coin = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
 
   return (

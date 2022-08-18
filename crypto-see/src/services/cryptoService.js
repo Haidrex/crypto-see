@@ -2,9 +2,9 @@ import axios from "axios";
 
 const baseUrl = "https://api.coingecko.com/api/v3";
 
-const getAllCryptos = () => {
+const getAllCryptos = (page, perPage) => {
   return axios.get(
-    `${baseUrl}/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=50&page=1&sparkline=false`
+    `${baseUrl}/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=false`
   );
 };
 

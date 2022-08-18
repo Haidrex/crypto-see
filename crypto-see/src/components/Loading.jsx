@@ -1,14 +1,13 @@
 import React from "react";
-import "./loading.css";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const SpinnerContainer = styled(Box)(({ theme }) => ({}));
 const LoadingSpinner = styled(Box)(({ theme }) => ({
-  width: "50px",
-  height: "50px",
+  width: "100px",
+  height: "100px",
   border: "10px solid #f3f3f3",
-  borderTop: "10px solid #383636" /* Black */,
+  borderTop: "10px solid #383636",
   borderRadius: "50%",
   animation: "spinner 1.5s linear infinite",
   "@keyframes myEffect": {

@@ -3,6 +3,7 @@ import { Container, Box, Grid, Typography } from "@mui/material";
 import DataCard from "../components/DataCard";
 import TopCryptos from "../components/TopCryptos";
 import cryptoService from "../services/cryptoService";
+import Loading from "../components/Loading";
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -29,7 +30,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div>loading</div>;
+    return <Loading />;
   }
 
   return (
