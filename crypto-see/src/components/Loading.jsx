@@ -2,7 +2,13 @@ import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const SpinnerContainer = styled(Box)(({ theme }) => ({}));
+const SpinnerContainer = styled(Box)(({ theme }) => ({
+  width: "100%",
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+}));
 const LoadingSpinner = styled(Box)(({ theme }) => ({
   width: "100px",
   height: "100px",

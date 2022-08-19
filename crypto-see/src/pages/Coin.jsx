@@ -14,6 +14,7 @@ const Coin = () => {
   const { id } = useParams();
 
   const [data, setData] = useState({});
+  const [chartDays, setChartDays] = useState(30);
   const [details, setDetails] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -59,8 +60,9 @@ const Coin = () => {
         priceChangePercentage={
           data.market_data.price_change_percentage_24h_in_currency.eur
         }
+        setChartDays={setChartDays}
       />
-      <CryptoChart />
+      <CryptoChart chartDays={chartDays} />
       <CryptoDetails details={details} />
       <CryptoDescription text={data.description.en} />
     </Container>

@@ -23,12 +23,17 @@ const CryptoChartHeader = ({
   currentPrice,
   priceChange,
   priceChangePercentage,
+  setChartDays,
 }) => {
   const [alignment, setAlignment] = useState("1M");
   const priceChangeColor = priceChange >= 0 ? "#00b674" : "#f05050";
 
   const handleChange = (e, newAlignment) => {
     setAlignment(newAlignment);
+  };
+
+  const handleDaysChange = (e) => {
+    setChartDays(e.target.value);
   };
 
   return (
@@ -48,11 +53,18 @@ const CryptoChartHeader = ({
             exclusive
             onChange={handleChange}
           >
-            <ToggleButton value="1H">1H</ToggleButton>
-            <ToggleButton value="1D">1D</ToggleButton>
-            <ToggleButton value="1W">1W</ToggleButton>
-            <ToggleButton value="1M">1M</ToggleButton>
-            <ToggleButton value="1Y">1Y</ToggleButton>
+            <ToggleButton value="1" onClick={handleDaysChange}>
+              1D
+            </ToggleButton>
+            <ToggleButton value="7" onClick={handleDaysChange}>
+              1W
+            </ToggleButton>
+            <ToggleButton value="30" onClick={handleDaysChange}>
+              1M
+            </ToggleButton>
+            <ToggleButton value="365" onClick={handleDaysChange}>
+              1Y
+            </ToggleButton>
           </ToggleButtonGroup>
         </Box>
       </StyledBox>

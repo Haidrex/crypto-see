@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import ExchangeCard from "../components/ExchangeCard";
 import Loading from "../components/Loading";
 import cryptoService from "../services/cryptoService";
-
-const StyledContainer = styled(Container)(({ theme }) => ({
-  padding: 5,
-}));
 
 const Exchanges = () => {
   const [exchanges, setExchanges] = useState([]);
@@ -33,7 +28,7 @@ const Exchanges = () => {
   }
 
   return (
-    <StyledContainer>
+    <Container sx={{ padding: 5 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -47,7 +42,7 @@ const Exchanges = () => {
           );
         })}
       </Grid>
-    </StyledContainer>
+    </Container>
   );
 };
 

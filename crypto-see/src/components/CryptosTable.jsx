@@ -59,9 +59,11 @@ const CryptosTable = ({ data }) => {
                 {priceFormatter(row.current_price)}
               </TableCell>
               <TableCell align="right">
-                {priceFormatter(row.high_24h)}
+                {row.high_24h ? priceFormatter(row.high_24h) : "-"}
               </TableCell>
-              <TableCell align="right">{priceFormatter(row.low_24h)}</TableCell>
+              <TableCell align="right">
+                {row.low_24h ? priceFormatter(row.low_24h) : "-"}
+              </TableCell>
               <TableCell align="right">
                 {priceFormatter(row.market_cap)}
               </TableCell>
