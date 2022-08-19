@@ -31,7 +31,7 @@ const Coins = () => {
 
   return (
     <Container sx={{ padding: 5 }}>
-      <CryptoSearch />
+      <CryptoSearch setData={setData} />
       <CryptosTable data={data} />
     </Container>
   );

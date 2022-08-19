@@ -10,7 +10,7 @@ const LoadingSpinner = styled(Box)(({ theme }) => ({
   borderTop: "10px solid #383636",
   borderRadius: "50%",
   animation: "spinner 1.5s linear infinite",
-  "@keyframes myEffect": {
+  "@keyframes spinner": {
     "0%": { transform: "rotate(0deg)" },
     "100%": { transform: "rotate(360deg)" },
   },

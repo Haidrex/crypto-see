@@ -28,7 +28,7 @@ const CryptoChart = () => {
         );
         const arrObjects = await response.data.prices.map((price) => ({
           time: dateFormatter(price[0]),
-          price: price[1],
+          Price: price[1],
         }));
 
         setData(arrObjects);
@@ -63,7 +63,7 @@ const CryptoChart = () => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line dataKey="price" stroke="#8884d8" activeDot={{ r: 8 }} />
+        <Line dataKey="Price" stroke="#8884d8" activeDot={{ r: 8 }} />
       </LineChart>
     </ResponsiveContainer>
   );

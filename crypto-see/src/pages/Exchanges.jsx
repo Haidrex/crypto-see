@@ -6,10 +6,6 @@ import Loading from "../components/Loading";
 import cryptoService from "../services/cryptoService";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "row",
-  gap: 2,
-  flexWrap: "wrap",
   padding: 5,
 }));
 
@@ -41,7 +37,7 @@ const Exchanges = () => {
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
+        columns={{ xs: 1, sm: 8, md: 12 }}
       >
         {exchanges.map((exchange) => {
           return (

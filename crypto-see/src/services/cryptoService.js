@@ -20,4 +20,8 @@ const getGlobal = () => {
   return axios.get(`${baseUrl}/global`);
 };
 
-export default { getAllCryptos, getCrypto, getExchanges, getGlobal };
+const search = (query) => {
+  return axios.get(`${baseUrl}/search?query=${query}`);
+};
+
+export default { getAllCryptos, getCrypto, getExchanges, getGlobal, search };
